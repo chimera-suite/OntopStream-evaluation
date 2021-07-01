@@ -1,0 +1,13 @@
+version: "3"
+services:
+  jupyter:
+    image: chimerasuite/jupyter-notebook:pysparql0.0.6-spark3.0.1-hadoop3.2
+    hostname: jupyter
+    container_name: jupyter
+    ports:
+      - "8888:8888"
+
+networks: 
+  default:
+    external: 
+      name: testnet

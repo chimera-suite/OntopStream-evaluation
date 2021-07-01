@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  ontop:
+    hostname: ontop
+    container_name: ontop
+    image: chimerasuite/ontop-stream:794f48a
+    environment: 
+      - ONTOP_ONTOLOGY_FILE=/opt/ontop/input/taxi.owl
+      - ONTOP_MAPPING_FILE=/opt/ontop/input/taxi.obda
+      - ONTOP_PROPERTIES_FILE=/opt/ontop/input/taxi.properties
+    ports:
+      - "8010:8080"
+    volumes:
+      - ./taxiRides:/opt/ontop/input
+      - ./jdbc:/opt/ontop/jdbc
+ 
+networks:
+  default:
+    external:
+      name: testnet
